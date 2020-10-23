@@ -18,9 +18,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class JobSequence {
-    char id;
-    int deadline;
-    int profit;
+    private char id;
+    private int deadline;
+    private int profit;
 
     public JobSequence(){}
 
@@ -59,9 +59,9 @@ public class JobSequence {
             // Note:
             // Each job can be completed in a single unit of time.
             for (int j = Math.min(t , arr.get(i).deadline) - 1; j >= 0; j--) {
-                if (timeslots[j] == false) {
-                    timeslots[j] = true;
+                if (!timeslots[j]) {
                     jobs[j] = arr.get(i).id;
+                    timeslots[j] = true;
                     break;
                 }
             }
